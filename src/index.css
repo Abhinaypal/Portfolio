@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary:    #ffffff;
+    --bg-secondary:  rgba(253,242,248,0.6);
+    --text-primary:  #831843;
+    --text-secondary:#9d174d;
+    --border-color:  #fbcfe8;
+    --glass-bg:      rgba(255,255,255,0.55);
+    --glass-border:  rgba(236,72,153,0.18);
+  }
+
+  .dark {
+    --bg-primary:    #0a0a14;
+    --bg-secondary:  rgba(17,17,27,0.55);
+    --text-primary:  #e2e8f0;
+    --text-secondary:#94a3b8;
+    --border-color:  #1e293b;
+    --glass-bg:      rgba(10,10,20,0.55);
+    --glass-border:  rgba(236,72,153,0.18);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Only transition colour-related props to avoid janky layout transitions */
+  *,*::before,*::after {
+    transition-property: color, background-color, border-color, opacity;
+    transition-duration: 300ms;
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)];
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track  { background: transparent; }
+  ::-webkit-scrollbar-thumb  { @apply bg-primary-500 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-primary-600; }
+}
+
+@layer components {
+  /* Sections — transparent so anime characters show through */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20;
+    position: relative;
+    z-index: 10;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-12;
+  }
+
+  /* Glass card — content readable but background bleeds through */
+  .card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid var(--glass-border);
+    @apply rounded-xl p-6 hover:border-primary-500 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg
+           font-semibold transition-all duration-300 transform hover:scale-105
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-primary-500 text-primary-600 dark:text-primary-400
+           hover:bg-primary-500 hover:text-white rounded-lg font-semibold
+           transition-all duration-300 transform hover:scale-105;
+  }
+}
