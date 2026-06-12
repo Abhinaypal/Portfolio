@@ -46,7 +46,7 @@ const Navbar = () => {
           >
             {/* You can replace this with an actual image logo */}
             <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:bg-primary-600 transition-colors">
-              <img src="\public\icons8-bird-above-48.png"></img>
+              <img src="/icons8-bird-above-48.png" alt="logo" className="w-full h-full object-contain" />
             </div>
             <span className="text-xl font-bold text-[var(--text-primary)] group-hover:text-primary-500 transition-colors">
               Abhinay
