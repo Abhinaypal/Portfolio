@@ -14,7 +14,6 @@ import Footer from './components/Footer/Footer'
 import Loading from './components/Loading/Loading'
 import ScrollProgress from './components/ScrollProgress/ScrollProgress'
 import ThemeToggle from './components/ThemeToggle/ThemeToggle'
-import AnimatedBackground from './components/Background/AnimatedBackground'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -60,8 +59,6 @@ function App() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Animated background — neural net + aurora + grid */}
-      <AnimatedBackground />
       
       <ScrollProgress />
       <Navbar />
